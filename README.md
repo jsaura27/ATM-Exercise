@@ -34,15 +34,15 @@ Inside the project there are also various Unit test to assert that most of the f
 
 Personal notes:
 
-The main approach to this project was a 4 step approach. It is going to be a bit cartoonis but it is a pretty accurate depiction of my thoughts:
+The main approach to this project was a 4 step approach:
 
-   1.It looks pretty straight forward, a class where I store the bills, and calculate...wait, how do I store the data? OK, time to google how serialization works.
+   1.Design of the approach to the project, starting with a basic ATM.class, serialization and the main menu.
  
-   2.I have serialization ready, let's leave the hashmap and currency problems to Saturday me, now let's finish the withdraw and deposit money in the atm.
+   2.Tackle the main methods: withdraw, deposit and currency change.
  
-   3.Aaaaand now I have to change all the variables cos of the hashmap with the currencies dammit. Let's add a few other things like receipt, balance to look good, sounds like a plan!
+   3.Retweaking those methods, dividing the withdrawal method and adding the other options to the menu such as receipt and check balance.
  
-   4.Ok, adding more changes to withdraw money again cos I forgot the leaving the options open and some unit tests so I can test all the scenarios in 1 run.
+   4.Cleaning and commenting the code, as well as creating some unit testing for extra safety. 
  
  Other feautures to improve the project:
  
