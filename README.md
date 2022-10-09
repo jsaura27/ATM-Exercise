@@ -6,11 +6,11 @@ There you will be able to run the project.
 This project has serialization, so it should be able to pick up the latest serialized object of ATM, but if for some reason you run into a problem where in the command 
 it shows that the bills are null, in line 15 of ATMExec.java you will find a commented line, uncomment it and run it again, that will initialize the object with
 bills for every currency available. You can proceed to comment it again after the first run since the serialization works. 
+
 ![image](https://user-images.githubusercontent.com/52546217/194766120-3f5d098b-d4fa-46e7-b2e7-87e500c973c4.png)
 
+Once you are able to run it, you will face the first task of selecting a currency, go wild and choose any of the 9 available.
 
-![image](https://user-images.githubusercontent.com/52546217/194766196-9f811542-3604-4643-9dbc-c25aafcadb27.png)
-Once you are able to run it, you will face the first task of selecting a currency, go wild and choose any of the 9 available. 
 That will lead you to the main menu where you will see the balance of that currency as well as face 6 different options:
 
    1.Deposit money -> Allows you to deposit bills of the current currency, 20 and 50 only
@@ -25,6 +25,8 @@ That will lead you to the main menu where you will see the balance of that curre
 
    6.Exit -> Stops the process.
 
+![image](https://user-images.githubusercontent.com/52546217/194766196-9f811542-3604-4643-9dbc-c25aafcadb27.png)
+
 Once you select any of the options 1 to 5 it will go back to the main menu after you are finished with that action, to allow you to proceed with another one. 
 This will go until you click 6 to exit the application.
 
@@ -34,7 +36,7 @@ Inside the project there are also various Unit test to assert that most of the f
 
 Personal notes:
 
-The main approach to this project was a 4 step approach:
+ The main approach to this project was a 4 step approach:
 
    1.Design of the approach to the project, starting with a basic ATM.class, serialization and the main menu.
  
