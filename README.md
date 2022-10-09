@@ -8,9 +8,10 @@ it shows that the bills are null, in line 15 of ATMExec.java you will find a com
 bills for every currency available. You can proceed to comment it again after the first run since the serialization works. 
 ![image](https://user-images.githubusercontent.com/52546217/194766120-3f5d098b-d4fa-46e7-b2e7-87e500c973c4.png)
 
+
+![image](https://user-images.githubusercontent.com/52546217/194766196-9f811542-3604-4643-9dbc-c25aafcadb27.png)
 Once you are able to run it, you will face the first task of selecting a currency, go wild and choose any of the 9 available. 
 That will lead you to the main menu where you will see the balance of that currency as well as face 6 different options:
-![image](https://user-images.githubusercontent.com/52546217/194766196-9f811542-3604-4643-9dbc-c25aafcadb27.png)
 
    1.Deposit money -> Allows you to deposit bills of the current currency, 20 and 50 only
 
@@ -34,6 +35,7 @@ Inside the project there are also various Unit test to assert that most of the f
 Personal notes:
 
 The main approach to this project was a 4 step approach. It is going to be a bit cartoonis but it is a pretty accurate depiction of my thoughts:
+
    1.It looks pretty straight forward, a class where I store the bills, and calculate...wait, how do I store the data? OK, time to google how serialization works.
  
    2.I have serialization ready, let's leave the hashmap and currency problems to Saturday me, now let's finish the withdraw and deposit money in the atm.
