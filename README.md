@@ -35,15 +35,22 @@ Personal notes:
 
 The main approach to this project was a 4 step approach. It is going to be a bit cartoonis but it is a pretty accurate depiction of my thoughts:
  1.It looks pretty straight forward, a class where I store the bills, and calculate...wait, how do I store the data? OK, time to google how serialization works.
+ 
  2.I have serialization ready, let's leave the hashmap and currency problems to Saturday me, now let's finish the withdraw and deposit money in the atm.
+ 
  3.Aaaaand now I have to change all the variables cos of the hashmap with the currencies dammit. Let's add a few other things like receipt, balance to look good, sounds like a plan!
+ 
  4.Ok, adding more changes to withdraw money again cos I forgot the leaving the options open and some unit tests so I can test all the scenarios in 1 run.
  
  Other feautures:
  There are some feautures I would like to add:
   1.Better unit test for DataManagementTest.class, they were the first one made and they are not my best work.
+  
   2.Finish all the remaining unit test, I believe there are a few unit test I have not finished yet for the ATMCommandsTest.class
+  
   3.Rechecking the withdraw method, I believe it can be optimized, I have focused on delivering a finished product, but I am certain it can be improved.
+  
   4.Integration testing, due to the nature of all the console output as well as keyboard scanner interaction an integration test would have taken me quite a while, so it remains in the todo list.
+  
   5.A simple GUI would make it a bit more easy to digest visually than just inputing things in the console and running on the IDE. 
   
