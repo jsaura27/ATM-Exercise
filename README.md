@@ -5,7 +5,7 @@ Once that is done you will need to go open the ATMExec class located in ATM-Exer
 There you will be able to run the project. 
 This project has serialization, so it should be able to pick up the latest serialized object of ATM, but if for some reason it doesn't it will initialize all currencies at 10 of each.  
 
-![image](https://user-images.githubusercontent.com/52546217/194766120-3f5d098b-d4fa-46e7-b2e7-87e500c973c4.png)
+![image](https://user-images.githubusercontent.com/52546217/195115304-97c388c1-51a9-480e-8190-16587ceefc10.png)
 
 Once you are able to run it, you will face the first task of selecting a currency, go wild and choose any of the 9 available.
 
