@@ -9,7 +9,7 @@ public class ATMExec {
 
     public static void main(String[] args) {
         ATM atm = new ATM();
-        String atmFile = "atm.ser";
+        String atmFile = "src/main/resources/atm.ser";
         Scanner keyboard = new Scanner(System.in);
         atm = deSerialize(atm, atmFile);
         boolean operating = true;

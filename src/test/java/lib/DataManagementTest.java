@@ -25,35 +25,38 @@ public class DataManagementTest {
 
     @Test
     public void emptyFile() {
+        //This is used to test the command prints
+        PrintStream mocked = mock(PrintStream.class);
+        PrintStream old = System.out;
+        System.setOut(mocked);
+
         String fileName = "potato.ser";
         atm = DataManagement.deSerialize(atm, fileName);
+
+        //Asserting the command prints are what we expect
+        Mockito.verify(mocked).println("IOException is caught");
         assertNull(atm.getCurrentCurrency());
     }
 
     @Test
     public void noFile() {
+        PrintStream mocked = mock(PrintStream.class);
+        PrintStream old = System.out;
+        System.setOut(mocked);
+
         String fileName = "banana.ser";
         atm = DataManagement.deSerialize(atm, fileName);
+
+        //Asserting the command prints are what we expect
+        Mockito.verify(mocked).println("IOException is caught");
         assertNull(atm.getCurrentCurrency());
     }
 
     @Test
     public void correctFile() {
-        String fileName = "atm.ser";
+        String fileName = "src/main/resources/atm.ser";
         atm = DataManagement.deSerialize(atm, fileName);
         assertNotNull(atm.getCurrentCurrency());
     }
 
-    @Test
-    public void exceptionCaught() {
-        PrintStream mocked = mock(PrintStream.class);
-        PrintStream old = System.out;
-        System.setOut(mocked);
-        String fileName = "potato.ser";
-        atm = DataManagement.deSerialize(atm, fileName);
-
-        Mockito.verify(mocked).println("IOException is caught");
-
-        System.setOut(old);
-    }
 }

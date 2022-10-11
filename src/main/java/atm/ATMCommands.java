@@ -105,7 +105,8 @@ public class ATMCommands {
             } else {
                 multipleBills(amount, atm);
             }
-        //Perfect amount for bills of 50
+            System.out.println("Thank you for withdrawing money with us");
+            //Perfect amount for bills of 50
         } else if (amount % 50 == 0) {
             int noBills50 = amount / 50;
             if (noBills50 <= atm.getBills50()) {
