@@ -67,7 +67,7 @@ public class ATMCommands {
         }
         System.out.println("How many " + atm.getCurrentCurrency() + "50 do you want to deposit:");
         noBills = keyboard.nextInt();
-        if (noBills > 0) {
+        if (noBills >= 0) {
             atm.addBills50(noBills);
         } else {
             System.out.println("Trying to be smart? Deducting all the money from your account..... Nah, just messing");
@@ -94,6 +94,14 @@ public class ATMCommands {
                     atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
                     atm.addToReceipt(50, noBills50);
                 }
+            }else if(noBills50 <= atm.getBills50()){
+                atm.subtractBills50(noBills50);
+                atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
+                atm.addToReceipt(50, noBills50);
+            }else if(noBills20 <= atm.getBills20()){
+                atm.subtractBills20(noBills20);
+                atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
+                atm.addToReceipt(20, noBills20);
             } else {
                 multipleBills(amount, atm);
             }
