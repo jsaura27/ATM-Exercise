@@ -39,6 +39,7 @@ public class ATM implements java.io.Serializable {
         amountOfEachBill.put("HK$50", bills50);
         amountOfEachBill.put("NZ$20", bills20);
         amountOfEachBill.put("NZ$50", bills50);
+        setCurrentCurrency("US$");
     }
 
     //Empty constructor, mainly there to deserialize the saved data

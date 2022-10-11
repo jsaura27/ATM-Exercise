@@ -13,11 +13,14 @@ import static org.mockito.Mockito.mock;
 
 public class DataManagementTest {
 
-    public ATM atm = new ATM();
+    public static ATM atm = new ATM();
 
     @BeforeAll
     public static void setup() {
         System.out.println("Junit Tests for DataManagement");
+        //String atmFile = "test.ser";
+        //atm = new ATM(10,10);
+
     }
 
     @Test

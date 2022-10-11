@@ -12,7 +12,6 @@ public class ATMExec {
         String atmFile = "atm.ser";
         Scanner keyboard = new Scanner(System.in);
         atm = deSerialize(atm, atmFile);
-        //atm = new ATM(10,10);
         boolean operating = true;
 
         System.out.println("Welcome, please select a currency:");
