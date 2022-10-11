@@ -3,9 +3,7 @@
 To run this project you will need to download it and build it. 
 Once that is done you will need to go open the ATMExec class located in ATM-Exercise->src->main->java
 There you will be able to run the project. 
-This project has serialization, so it should be able to pick up the latest serialized object of ATM, but if for some reason you run into a problem where in the command 
-it shows that the bills are null, in line 15 of ATMExec.java you will find a commented line, uncomment it and run it again, that will initialize the object with
-bills for every currency available. You can proceed to comment it again after the first run since the serialization works. 
+This project has serialization, so it should be able to pick up the latest serialized object of ATM, but if for some reason it doesn't it will initialize all currencies at 10 of each.  
 
 ![image](https://user-images.githubusercontent.com/52546217/194766120-3f5d098b-d4fa-46e7-b2e7-87e500c973c4.png)
 
