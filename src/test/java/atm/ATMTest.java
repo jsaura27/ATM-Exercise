@@ -1,6 +1,7 @@
 package atm;
 
 import lib.DataManagement;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +15,11 @@ public class ATMTest {
     @BeforeAll
     public static void setup() {
         System.out.println("Junit Tests for ATM");
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        System.out.println("Junit Tests for ATM End");
     }
 
     @Test

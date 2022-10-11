@@ -9,43 +9,38 @@ import static lib.DataManagement.serialize;
 public class ATMCommands {
 
     //Main option menu
-    public static void mainCommands(Scanner keyboard, ATM atm, String atmFile) {
+    public static boolean mainCommands(Scanner keyboard, ATM atm, String atmFile) {
 
         System.out.println("Do you want to:");
-        System.out.println(" 1.Deposit money \n" +
-                " 2.Withdraw money\n" +
-                " 3.Change currency\n" +
-                " 4.Check global balance\n" +
-                " 5.Receipt\n" +
-                " 6.Exit");
+        System.out.println(" 1.Deposit money \n" + " 2.Withdraw money\n" + " 3.Change currency\n" + " 4.Check global balance\n" + " 5.Receipt\n" + " 6.Exit");
 
         switch (keyboard.nextInt()) {
 
             case 1:
                 deposit(keyboard, atm);
                 keyboard.nextLine();
-                break;
+                return true;
             case 2:
                 withdraw(keyboard, atm);
                 billAmountChecker(atm);
                 keyboard.nextLine();
-                break;
+                return true;
             case 3:
                 keyboard.nextLine();
                 selectCurrency(keyboard, atm);
-                break;
+                return true;
             case 4:
                 checkBalance(atm);
-                break;
+                return true;
             case 5:
                 System.out.println(atm.getReceipt());
-                break;
+                return true;
             case 6:
                 atm.setReceipt("");
                 serialize(atm, atmFile);
-                exit(0);
-                break;
+                return false;
         }
+        return true;
     }
 
     //Method to select a different currency
@@ -94,11 +89,11 @@ public class ATMCommands {
                     atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
                     atm.addToReceipt(50, noBills50);
                 }
-            }else if(noBills50 <= atm.getBills50()){
+            } else if (noBills50 <= atm.getBills50()) {
                 atm.subtractBills50(noBills50);
                 atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
                 atm.addToReceipt(50, noBills50);
-            }else if(noBills20 <= atm.getBills20()){
+            } else if (noBills20 <= atm.getBills20()) {
                 atm.subtractBills20(noBills20);
                 atm.addToReceipt("Withdrawing " + atm.getCurrentCurrency() + amount);
                 atm.addToReceipt(20, noBills20);
@@ -117,7 +112,7 @@ public class ATMCommands {
                 multipleBills(amount, atm);
             }
             System.out.println("Thank you for withdrawing money with us");
-        //Perfect for bills of 20
+            //Perfect for bills of 20
         } else if (amount % 20 == 0) {
             int noBills20 = amount / 20;
             if (noBills20 <= atm.getBills20()) {

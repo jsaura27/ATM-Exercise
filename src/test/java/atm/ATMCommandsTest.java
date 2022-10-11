@@ -1,5 +1,6 @@
 package atm;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -20,6 +21,11 @@ public class ATMCommandsTest {
     @BeforeAll
     public static void setup() {
         System.out.println("Junit Tests for ATM Commands");
+    }
+
+    @AfterAll
+    public static void cleanUp() {
+        System.out.println("Junit Tests for ATM Commands End");
     }
 
     @Test
@@ -129,7 +135,7 @@ public class ATMCommandsTest {
         PrintStream old = System.out;
         System.setOut(mocked);
 
-        int[] withdrawals = {25, 30, 93, 134, 232,10000};
+        int[] withdrawals = {25, 30, 93, 134, 232, 10000};
 
         for (int cash : withdrawals) {
             //This is used for the input of keyboard by changing the System.in with a custom inputstream
@@ -192,7 +198,7 @@ public class ATMCommandsTest {
     }
 
     @Test
-    public void withdraw200Test(){
+    public void withdraw200Test() {
         //This is used to test the command prints
         PrintStream mocked = mock(PrintStream.class);
         PrintStream old = System.out;
@@ -219,8 +225,43 @@ public class ATMCommandsTest {
         //I check here if it is not just null, since if any withdrawal has been made
         //the receipt will have updated
         assertNotEquals("null", atm.getReceipt());
-        assertEquals(1,atm.getBills50());
-        assertEquals(3,atm.getBills20());
+        assertEquals(1, atm.getBills50());
+        assertEquals(3, atm.getBills20());
+
+        System.setOut(old);
+
+    }
+
+    @Test
+    public void withdraw100OptionOpenTest() {
+        //This is used to test the command prints
+        PrintStream mocked = mock(PrintStream.class);
+        PrintStream old = System.out;
+        System.setOut(mocked);
+
+        int amount = 100;
+
+        //This is used for the input of keyboard by changing the System.in with a custom inputstream
+        //It is needed here to break the switch and proceed to test it
+        String input = Integer.toString(amount);
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        ATM atm = new ATM(5, 1);
+        atm.setCurrentCurrency("US$");
+        Scanner keyboard = new Scanner(System.in);
+
+        withdraw(keyboard, atm);
+
+        //Asserting the command prints are what we expect
+        Mockito.verify(mocked).println("How much money would you like to withdraw?");
+        Mockito.verify(mocked).println("Thank you for withdrawing money with us");
+
+        //I check here if it is not just null, since if any withdrawal has been made
+        //the receipt will have updated
+        assertNotEquals("null", atm.getReceipt());
+        assertEquals(1, atm.getBills50());
+        assertEquals(0, atm.getBills20());
 
         System.setOut(old);
 
@@ -228,7 +269,7 @@ public class ATMCommandsTest {
 
 
     @Test
-    public void depositSmallAmountTest(){
+    public void depositSmallAmountTest() {
         //This is used to test the command prints
         PrintStream mocked = mock(PrintStream.class);
         PrintStream old = System.out;
@@ -254,10 +295,12 @@ public class ATMCommandsTest {
         assertEquals(15, atm.getBills50());
         assertEquals(15, atm.getBills20());
 
+        System.setOut(old);
+
     }
 
     @Test
-    public void depositBigAmountTest(){
+    public void depositBigAmountTest() {
         //This is used to test the command prints
         PrintStream mocked = mock(PrintStream.class);
         PrintStream old = System.out;
@@ -283,10 +326,12 @@ public class ATMCommandsTest {
         assertEquals(60, atm.getBills50());
         assertEquals(60, atm.getBills20());
 
+        System.setOut(old);
+
     }
 
     @Test
-    public void billAmountChecketTest(){
+    public void billAmountChecketTest() {
         PrintStream mocked = mock(PrintStream.class);
         PrintStream old = System.out;
         System.setOut(mocked);
@@ -300,10 +345,12 @@ public class ATMCommandsTest {
         Mockito.verify(mocked).println("We highly recommend to deposit some " + atm.getCurrentCurrency() + "50 bills, since there is only " + atm.getBills50() + " left");
         Mockito.verify(mocked).println("We highly recommend to deposit some " + atm.getCurrentCurrency() + "20 bills, since there is only " + atm.getBills20() + " left");
 
+        System.setOut(old);
+
     }
 
     @Test
-    public void checkBalanceTest(){
+    public void checkBalanceTest() {
         PrintStream mocked = mock(PrintStream.class);
         PrintStream old = System.out;
         System.setOut(mocked);
@@ -316,10 +363,12 @@ public class ATMCommandsTest {
         //Asserting the command prints are what we expect
         for (Currency c : atm.getCurrencies()) {
             Mockito.verify(mocked).println(c.getDisplayName() + " - Total balance : " + 700);
-            Mockito.verify(mocked).println(c.getSymbol() + 20 +  " : 10");
-            Mockito.verify(mocked).println(c.getSymbol() + 50 +  " : 10");
+            Mockito.verify(mocked).println(c.getSymbol() + 20 + " : 10");
+            Mockito.verify(mocked).println(c.getSymbol() + 50 + " : 10");
 
         }
+
+        System.setOut(old);
 
     }
 }

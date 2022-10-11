@@ -1,6 +1,7 @@
 package lib;
 
 import atm.ATM;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -18,9 +19,11 @@ public class DataManagementTest {
     @BeforeAll
     public static void setup() {
         System.out.println("Junit Tests for DataManagement");
-        //String atmFile = "test.ser";
-        //atm = new ATM(10,10);
+    }
 
+    @AfterAll
+    public static void cleanUp() {
+        System.out.println("Junit Tests for DataManagement End");
     }
 
     @Test
@@ -36,6 +39,8 @@ public class DataManagementTest {
         //Asserting the command prints are what we expect
         Mockito.verify(mocked).println("IOException is caught");
         assertNull(atm.getCurrentCurrency());
+        System.setOut(old);
+
     }
 
     @Test
@@ -50,6 +55,8 @@ public class DataManagementTest {
         //Asserting the command prints are what we expect
         Mockito.verify(mocked).println("IOException is caught");
         assertNull(atm.getCurrentCurrency());
+        System.setOut(old);
+
     }
 
     @Test
@@ -58,5 +65,6 @@ public class DataManagementTest {
         atm = DataManagement.deSerialize(atm, fileName);
         assertNotNull(atm.getCurrentCurrency());
     }
+
 
 }

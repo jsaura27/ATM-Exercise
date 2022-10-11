@@ -39,9 +39,9 @@ public class DataManagement {
             System.out.println("IOException is caught");
         } catch (ClassNotFoundException ex) {
             System.out.println("ClassNotFoundException is caught");
-        } catch(IllegalArgumentException ex){
+        } catch (IllegalArgumentException ex) {
             System.out.println("Initializing ATM");
-            atm = new ATM(10,10);
+            atm = new ATM(10, 10);
         }
         return atm;
     }

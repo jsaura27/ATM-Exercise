@@ -14,14 +14,13 @@ public class ATMExec {
         atm = deSerialize(atm, atmFile);
         boolean operating = true;
 
-        System.out.println("Welcome, please select a currency:");
         selectCurrency(keyboard, atm);
 
         while (operating) {
             System.out.println("The atm currently have this bills available");
             System.out.println(atm);
             billAmountChecker(atm);
-            mainCommands(keyboard, atm, atmFile);
+            operating = mainCommands(keyboard, atm, atmFile);
         }
     }
 }
